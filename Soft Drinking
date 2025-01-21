@@ -1,0 +1,20 @@
+#include<iostream>
+using namespace std;
+int main()
+{
+    int  n, k, l, c, d, p, m,o;
+    cin>>n;
+    cin>>k;
+    cin>>l;
+    cin>>c;
+    cin>>d;
+    cin>>p;
+    cin>>m;
+    cin>>o;
+    int j=k*l/(m*n);
+    int w=p/(o*n);
+    int i=c*d/n;
+    int x=((i<j)&&(i<w))?i:(j<w?j:w);
+    cout<<x;
+    return 0;
+}
