@@ -1,0 +1,56 @@
+#include<iostream>
+#include<algorithm>
+using namespace std;
+int main()
+{
+    int t,i;
+    cin>>t;
+    int array[t];
+    for(i=0;i<t;i++)
+    {
+        int n,p,m,j,k,count=0;
+        cin>>n>>m;
+        int arraya[n],arrayb[n];
+        arraya[0]=1;
+        for(j=1;j<n;j++)
+        {
+            cin>>arraya[j];
+            
+        }
+        sort(arraya,arraya+n);
+        for(j=0;j<n;j++)
+        {
+            cin>>arrayb[j];
+        }
+        sort(arrayb,arrayb+n);
+        p=n;
+        j=0;
+        k=0;
+        while(j<p&&k<n)
+        {
+            if(arraya[j]>=arrayb[k])
+            {
+                k=k+1;
+                p=p-1;
+                count=count+1;
+                
+            
+            }
+            else{
+                
+                k=k+1;
+            j=j+1;
+            
+            }
+            
+        }
+        array[i]=count;
+ 
+
+    }
+    for(i=0;i<t;i++)
+    {
+        cout<<array[i]<<endl;
+    }
+
+}
