@@ -1,0 +1,36 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int t,i;
+    cin>>t;
+    int array[t];
+    for(i=0;i<t;i++)
+    {
+        int n,m;
+        cin>>n>>m;
+         int arrayx[n],arrayy[n],j;
+         for(j=0;j<n;j++)
+         {
+             cin>>arrayx[j]>>arrayy[j];
+         }
+         int max=4*n*m;
+         for(j=1;j<n;j++)
+         {
+             if(arrayx[j]>m||arrayy[j]>m)
+             {
+
+             }
+             else
+             {
+               max=max-2*((m-arrayx[j])+(m-arrayy[j]));
+                
+             }
+         }
+         array[i]=max;
+    }
+    for(i=0;i<t;i++)
+    {
+        cout<<array[i]<<endl;
+    }
+}
