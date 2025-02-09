@@ -1,0 +1,28 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    string s,s1,s2;
+    cin>>s;
+    cin>>s1;
+    transform(s.begin(),s.end(),s.begin(),::tolower);
+    transform(s1.begin(),s1.end(),s1.begin(),::tolower);
+    int i=0,key=0;
+    while(s[i]!='\0')
+    {
+        if(((int)s[i])<((int)s1[i]))
+        {
+            key=-1;
+            break;
+        }
+        if(((int)s[i])>((int)s1[i]))
+        {
+            key=1;
+            break;
+        }
+        i++;
+    }
+    cout<<key;
+    
+
+}
