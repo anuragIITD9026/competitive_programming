@@ -1,0 +1,39 @@
+#include<bits/stdc++.h>
+using namespace std;
+int countfreq(const string& pat, string& txt) {
+    int res = 0;
+    size_t pos = txt.find(pat);
+    while (pos != string::npos) {
+        res++;
+        pos = txt.find(pat, pos + 1);
+    }
+    return res;
+}
+
+int main()
+{
+    int n,m,q;
+    cin>>n>>m>>q;
+    string s,t;
+    cin>>s>>t;
+    // cout<<s<<endl; ;
+    // cout<<t<<endl;
+    int i,j;
+    int array[q];
+    for(i=0;i<q;i++)
+    {
+        int l,r;
+        cin>>l>>r;
+        int count;
+        string pat=s.substr(l-1,r-l+1);
+        // cout<<pat<<endl;
+        count=countfreq(t,pat);
+        array[i]=count;
+        // cout<<count<<endl;
+    }
+    for(i=0;i<q;i++)
+    {
+        cout<<array[i]<<endl;
+    }
+    return 0;
+}
