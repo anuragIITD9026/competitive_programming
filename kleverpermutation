@@ -1,0 +1,53 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int t,i=0;
+    cin>>t;
+    vector<pair<int,int>> array(t);
+    for(i=0;i<t;i++)
+    {
+        int n,k;
+        cin>>n>>k;
+        array[i]=make_pair(n,k);
+    }
+    for(i=0;i<t;i++)
+    {
+        int j,l;
+        int n=array[i].first;
+        int k=array[i].second;
+        vector<int> array1(n,0);
+        int o=0,p=1,max=n,min=1,po,pp;
+        j=1;
+
+        while(j<=n)
+
+        {
+            po=o;
+            pp=p;
+
+while(o<n&&j<=n)
+{
+    array1[o]=min;
+    min++;
+    o=o+k;j++;
+}
+
+while(p<n&&j<=n)
+{
+    array1[p]=max;
+    max--;
+    p=p+k;j++;
+}
+
+o=po+2;
+p=pp+2;
+        }
+        for(j=0;j<n;j++)
+        {
+            cout<<array1[j]<<" ";
+        }
+        cout<<endl;
+    }
+    return 0;
+}
