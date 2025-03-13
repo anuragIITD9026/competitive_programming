@@ -1,0 +1,65 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int countTriangles(vector<int>& arr,map<int,int>& freq) {
+    int n = arr.size();
+    if (n < 3) return 0;
+
+    
+    int count = 0;
+    k=n-1;
+    
+
+    // for (int k = n - 1; k >= 2; k--) 
+    while(k>=2){ 
+        int i = 0, j = k - 1;
+        // while (i < j) {
+            int z=freq[arr[k]]; // Step 3: Use two-pointer method
+            if ((arr[j]==arr[k])) {
+                if(j>=1)
+                {
+                count += (j-i)*(z-1); 
+                }// All pairs (i, j) where i < j are valid
+                else{
+                    break
+                }  // Move `j` left
+            } else {
+                k--;  // Move `i` right
+            }
+        // }
+        
+    }
+    return count;
+}
+
+
+int main() {
+   int t,i=0;
+    cin>>t;
+    vector<int> array(t,0);
+    for(i=0;i<t;i++)
+    {
+        int n,j=0;
+        cin>>n;
+        multiset<int> array2;
+        map<int,int> freq;  // Use multiset to maintain sorted order and allow duplicates
+        for (int j = 0; j < n; j++) {
+            int val;
+            cin >> val;
+            array2.insert(val); 
+            freq[val]++; // Insert elements directly into multiset
+        }
+        vector<int> array1(array2.begin(), array2.end());
+        // vector<int> array1(n);
+        // for(j=0;j<n;j++)
+        // {
+        //     cin>>array1[j];
+        // }
+        array[i] = countTriangles(array1,freq);
+    }
+    for(i=0;i<t;i++)
+    {
+        cout<<array[i]<<endl;
+    }
+    return 0;
+}
