@@ -1,0 +1,50 @@
+
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int t,i;
+    cin>>t;
+    vector<int> array(t,0);
+    for(i=0;i<t;i++)
+    {
+     int n,j,k;
+     cin>>n;
+     string s;
+        cin>>s;
+        map<string,int> m;
+        for(j=0;j<n-1;j++)
+        {
+            string s1=s.substr(j,2);
+            m[s1]++;
+            if(m[s1]>1)
+            {
+                array[i]=1;
+                break;
+            }
+            // cout<<"here"<<endl;
+            // cout<<"s1: "<<s1<<endl;
+            // cout<<"s10"<<s1[0]<<endl;
+            // cout<<"s11"<<s1[1]<<endl;
+            // cout<<"sj2"<<s[j+2]<<endl;
+            if((s1[0]==s1[1])&&(s1[0]==s[j+2]))
+            {
+                j++;
+            }
+        }
+
+
+    }
+    for(i=0;i<t;i++)
+    {
+        if(array[i]==1)
+        {
+            cout<<"YES"<<endl;
+        }
+        else
+        {
+            cout<<"NO"<<endl;
+        }
+    }
+    return 0;
+}
