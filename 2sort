@@ -1,0 +1,58 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int t,i=0;
+    cin>>t;
+    vector<int> array(t,0);
+    for(i=0;i<t;i++)
+    {
+        int n,k,j=0,l=0;
+        cin>>n>>k;
+        vector<int> array1(n);
+        int y=-1;
+        for(j=0;j<n;j++)
+        {
+            cin>>array1[j];
+        }
+        j=0;
+        
+        while(j<n)
+        {
+            // cout<<"hello"<<endl;
+            int x=array1[j];
+            
+            if(y<2*x)
+            {
+                y=x;
+                
+            }
+            else{
+
+                int o=l-k;
+                // cout<<o<<endl;
+        if(o>=0)
+        {
+            array[i]+=o;
+        }
+        // cout<<array[i]<<endl;
+        l=0;
+        y=x;
+            }
+            j++;
+            l++;
+            
+        }
+        int o=l-k;
+        if(o>=0)
+        {
+            array[i]+=o;
+        }
+        
+    }
+    for(i=0;i<t;i++)
+    {
+        cout<<array[i]<<endl;
+    }
+    return 0;
+}
