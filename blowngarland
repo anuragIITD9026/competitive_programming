@@ -1,0 +1,50 @@
+#include<bits/stdc++.h>
+using namespace std;
+int checkvector(vector<char> v)
+{
+    int i;
+    for(i=0;i<v.size();i++)
+    {
+        if(v[i]=='!')
+        {
+            return 0;
+        }
+    }
+    return 1;
+}
+int main()
+{
+    string s;
+    cin>>s;
+    int i;
+    int array[128]={0};
+    vector<char> v={'!','!','!','!'};
+    for(i=0;i<s.length();i++)
+    {
+        if(checkvector(v)==1)
+        {
+            break;
+        }
+        if(v[i%4]=='!')
+        {
+        v[i%4]=s[i];
+        }
+
+
+    }
+    for(i=0;i<s.length();i++)
+    {
+        if(s[i]=='!')
+        {
+            array[(int)v[i%4]]++;
+        }
+        
+    }
+    char r='R',b='B',g='G',y='Y';
+    
+        cout<<array[(int)r]<<" ";
+        cout<<array[(int)b]<<" ";
+        cout<<array[(int)y]<<" ";
+        cout<<array[(int)g];
+    return 0;
+}
