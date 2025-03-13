@@ -1,0 +1,47 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int t,i;
+    cin>>t;
+    vector<long long int> array;
+    for(i=0;i<t;i++)
+    {
+        int n,m;
+        cin>>n>>m;
+        int array1[n];
+        int array2[n];
+        int j;
+        for(j=0;j<n;j++)
+        {
+            cin>>array1[j];
+        }
+        for(j=0;j<n;j++)
+        {
+            cin>>array2[j];
+        }
+        long long int sum=0;
+        for(j=n-1;j>=m;j--)
+        {
+            sum+=min(array1[j],array2[j]);
+        }
+        vector<long long int> v;
+        long long int b=0;
+        while(b<array1[m-1]&&j>=0)
+        {
+            v.push_back(b+array1[j]);
+            b+=array2[j];
+            j--;
+        }
+        sum=sum+*min_element(v.begin(),v.end());
+        array.push_back(sum);
+        
+
+
+    }
+    for(i=0;i<t;i++)
+    {
+        cout<<array[i]<<endl;
+    }
+    return 0;
+}
