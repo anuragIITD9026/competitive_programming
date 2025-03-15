@@ -1,0 +1,45 @@
+struct Node {
+    int data;
+    struct Node *next;
+    Node(int x) {
+        data = x;
+        next = NULL;
+    }
+};
+
+*/
+class Solution {
+  public:
+    // Function to find the length of a loop in the linked list.
+    int countNodesinLoop(Node *head) {
+        // Code here
+        Node *fast=head,*slow=head;
+        while(fast->next!=NULL)
+{
+    fast=fast->next;
+    fast=fast->next;
+    slow=slow->next;
+    if(fast==slow)
+    {
+        break;
+    }
+    if(fast==NULL)
+    {
+        break;
+    }
+}        // your code here
+
+    if(fast==NULL||fast->next==NULL)
+    {
+        return 0;
+    }
+    int count=1;
+    slow=slow->next;
+    while(slow!=fast)
+    {
+        slow=slow->next;
+        count++;
+    }
+    return count;
+    }
+};
