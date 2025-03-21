@@ -1,0 +1,18 @@
+class Solution {
+  public:
+    int sumBT(Node* node) {
+        // code here
+      
+
+      
+   
+        // code here
+        if(node==NULL)
+        {
+            return 0;
+        }
+        return sumBT(node->left)+sumBT(node->right)+node->data;
+   
+
+    }
+};
