@@ -1,0 +1,26 @@
+class Solution {
+  public:
+    // Function to count the number of leaf nodes in a binary tree.
+    int countLeaves(Node* node) {
+        // write code here
+        
+        // code here
+      
+
+      
+   
+        // code here
+        if(node==NULL)
+        {
+            return 0;
+        }
+        if(!node->left&&!node->right)
+        {
+            return 1;
+        }
+        return countLeaves(node->left)+countLeaves(node->right);
+   
+
+   
+    }
+};
