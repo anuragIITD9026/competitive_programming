@@ -1,0 +1,29 @@
+class Solution {
+  public:
+    int height(Node* node) {
+        // code here
+     
+        
+        
+        // code here
+      
+
+      
+   
+        // code here
+        if(node==NULL)
+        {
+            return 0;
+        }
+        if(node->left==nullptr&&node->right==nullptr)
+        {
+            return 0;
+        }
+        
+       
+return max(height(node->left),height(node->right))+1;
+   
+    
+   
+    }
+};
