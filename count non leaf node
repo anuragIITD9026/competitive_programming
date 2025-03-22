@@ -1,0 +1,28 @@
+class Solution {
+  public:
+    int countNonLeafNodes(Node* node) {
+        // Code here
+        
+        
+        // code here
+      
+
+      
+   
+        // code here
+        if(node==NULL)
+        {
+            return 0;
+        }
+        if(node->left==nullptr&&node->right==nullptr)
+        {
+            return 0;
+        }
+        
+        return countNonLeafNodes(node->left)+countNonLeafNodes(node->right)+1;
+   
+
+   
+    
+    }
+};
