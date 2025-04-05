@@ -1,0 +1,24 @@
+#include<bits/stdc++.h>
+using namespace std;
+class node{
+    public:
+    int data;
+    node* left;
+    node* right;
+
+
+};
+void leftview(node* root,int level,vector<int> &ans)
+{
+    if(!root)
+    {
+        return ans;
+    }
+    if(level==ans.size())
+    {
+        ans.push_back(root->data);
+    }
+leftview(root->left,level+1,ans);
+leftview(root->right,level+1,ans);
+
+}
