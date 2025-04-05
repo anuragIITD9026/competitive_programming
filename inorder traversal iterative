@@ -1,0 +1,39 @@
+class Solution {
+public:
+    vector<int> inOrder(Node* root)
+    {
+        //code here
+        stack<Node*> s;
+        stack<int> count;
+        vector<int> ans;
+        s.push(root);
+        count.push(0);
+        while(!s.empty())
+        {
+            Node* temp=s.top();
+            s.pop();
+            if(count.top()==1)
+            {
+                count.pop();
+                ans.push_back(temp->data);
+            }
+            else
+            {
+                count.pop();
+                if(temp->right)
+                {
+                    count.push(0);
+                    s.push(temp->right);
+                }
+                count.push(1);
+                s.push(temp);
+                if(temp->left)
+                {
+                    count.push(0);
+                    s.push(temp->left);
+                }
+            }
+        }
+        return ans;
+    }
+};
