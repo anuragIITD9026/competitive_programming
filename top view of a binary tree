@@ -1,0 +1,42 @@
+#include<bits/stdc++.h>
+using namespace std;
+class node{
+    public:
+    int data;
+    node* left;
+    node* right;
+
+
+};
+vector<int> topview(node* root)
+{
+    if(!root)
+    return;
+    map<int,int> m;
+    queue<pair<node*,int>> q;
+    q.push({root,0});
+while(!q.empty())
+{
+    auto p=q.front();
+    q.pop();
+    node *nde=p.first;
+    int hd=p.second;
+    if(m.find(hd)==m.end())
+    {
+        m[hd]=nde->data;
+    }
+    if(nde->left)
+    {
+        q.push({nde->left,hd-1});
+    }
+    if(nde->right)
+    {
+        q.push({nde->right,hd+1});
+    }
+}
+vector<int> v;
+for(auto it : m)
+{
+v.push_back(it.second);
+}
+}
