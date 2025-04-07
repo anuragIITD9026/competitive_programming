@@ -1,0 +1,35 @@
+class Solution {
+  public:
+    // Function to build the tree from given inorder and preorder traversals
+    Node *buildTree(vector<int> &inorder, vector<int> &preorder) {
+        // code here
+if(preorder.size()==0)
+        {
+            return nullptr;
+        }
+        if(preorder.size()==1)
+        {
+            Node* root=new Node(preorder[0]);
+            return root;
+        }
+        int x=preorder[0];
+        vector<int> ninorder,neinorder;
+        int i=0;
+        for( i=0;i<inorder.size()&&inorder[i]!=x;i++)
+        {
+            ninorder.push_back(inorder[i]);
+        }
+        neinorder.assign(inorder.begin()+i+1,inorder.end());
+        vector<int> npreorder,nepreorder;
+        if(i>0)
+        {
+        npreorder.assign(preorder.begin()+1,preorder.begin()+i);
+
+        }
+return root;
+    }
+};
+        nepreorder.assign(preorder.begin()+i+1,preorder.end());
+        Node* root=new Node(x);
+        root->left=buildTree(ninorder,npreorder);
+        root->right=buildTree(neinorder,nepreorder);
