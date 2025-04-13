@@ -1,0 +1,42 @@
+class Solution {
+public:
+    int maxcount=0;
+    int currentval=0,currentcount=0;
+    int firstnode=1;
+    vector<int> mode;
+    void checkmode(int val)
+    {
+        if(firstnode||val!=currentval)
+        {
+            currentval=val;
+            currentcount=0;
+            firstnode=0;
+        }
+        currentcount++;
+        if(maxcount==currentcount)
+        {
+            mode.push_back(val);
+        }
+        if(currentcount>maxcount)
+        {
+            maxcount=currentcount;
+            mode={val};
+        }
+        
+    }
+    void inorder(TreeNode* root)
+    {
+        if(!root)
+        {
+            return ;
+        }
+        inorder(root->left);
+        checkmode(root->val);
+        inorder(root->right);
+
+    }
+    vector<int> findMode(TreeNode* root) {
+        inorder(root);
+        return mode;
+    }
+};
