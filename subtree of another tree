@@ -1,0 +1,34 @@
+class Solution {
+public:
+    bool similar(TreeNode* root1,TreeNode* root2)
+    {
+        if(!root1&&!root2)
+        {
+            return true;
+        }
+        if(!root1||!root2)
+        {
+            return false;
+        }
+        
+        if(root1->val!=root2->val)
+        {
+            return false;
+        }
+        return similar(root1->left,root2->left)&&similar(root1->right,root2->right);
+    }
+    bool isSubtree(TreeNode* root, TreeNode* subroot) {
+        if(!root)
+        {
+            return 0;
+        }
+        
+            if(similar(root,subroot))
+            {
+                return true;
+            }
+        
+        return isSubtree(root->left,subroot)||isSubtree(root->right,subroot);
+
+    }
+};
