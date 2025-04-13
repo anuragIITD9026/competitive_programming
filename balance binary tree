@@ -1,0 +1,24 @@
+class Solution {
+public:
+    int height(TreeNode* root,bool &balance)
+    {
+        if(!root)
+        {
+            return 0;
+        }
+        int left=height(root->left,balance);
+        int right=height(root->right,balance);
+        if(abs(left-right)>1)
+        {
+            balance=false;
+        }
+        return max(left,right)+1;
+
+    }
+    bool isBalanced(TreeNode* root) {
+        bool balance=true;
+        int heigt=height(root,balance);
+        return balance;
+
+    }
+};
