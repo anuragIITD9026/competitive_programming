@@ -1,0 +1,24 @@
+class Solution {
+public:
+    bool hasPathSum(TreeNode* root, int targetsum) {
+        if(!root)
+        {
+            return 0;
+        }
+        if(!root->left&&!root->right)
+        {
+            return root->val==targetsum;
+           
+        }
+        bool left=0,right=0;
+        if(root->left)
+        {
+         left=hasPathSum(root->left,targetsum-root->val);
+        }
+        if(root->right)
+        {
+         right=hasPathSum(root->right,targetsum-root->val);
+        }
+        return left+right;
+    }
+};
