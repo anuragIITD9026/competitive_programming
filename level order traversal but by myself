@@ -1,0 +1,37 @@
+class Solution {
+public:
+    vector<vector<int>> levelOrder(TreeNode* root) {
+        vector<vector<int>> answer;
+        if(!root)
+        {
+            return answer;
+        }
+        queue<TreeNode*> q;
+        q.push(root);
+        while(!q.empty())
+        {
+            vector<int> res;
+            int levelsize=q.size();
+           
+           
+           for(int i=0;i<levelsize;i++)
+           {
+            TreeNode* cur=q.front();
+            res.push_back(cur->val);
+            q.pop();
+            if(cur->left)
+            {
+                q.push(cur->left);
+
+            }
+            if(cur->right)
+            {
+                q.push(cur->right);
+            }
+           }
+           answer.push_back(res);
+           
+        }
+        return answer;
+    }
+};
