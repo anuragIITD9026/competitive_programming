@@ -1,0 +1,32 @@
+class Solution {
+public:
+    int first=1;
+    TreeNode* vac;
+    void increasing(TreeNode* root,TreeNode* &current)
+    {
+        if(!root)
+        {
+            return;
+        }
+        
+           increasing(root->left,current) ;
+        
+        current->right=root;
+        current->left=nullptr;
+        current=root;
+        current->left=nullptr;
+        
+            increasing(root->right,current);
+       
+    }
+    TreeNode* increasingBST(TreeNode* root) {
+        TreeNode* dummy=new TreeNode(0);
+        TreeNode* current=dummy;
+        if(!root)
+        {
+            return root;
+        }
+        increasing(root,current);
+        return dummy->right;
+    }
+};
