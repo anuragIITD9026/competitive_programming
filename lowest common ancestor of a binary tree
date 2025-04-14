@@ -1,0 +1,25 @@
+class Solution {
+public:
+    TreeNode* ans=nullptr;
+    bool findin(TreeNode* root,TreeNode* p,TreeNode* q)
+    {
+        if(!root)
+        {
+            return 0;
+        }
+        bool left=findin(root->left,p,q);
+        bool right=findin(root->right,p,q);
+        bool itself=(root==p)||(root==q);
+        if((left&&right)||(left&&itself)||(right&&itself))
+        {
+            ans=root;
+        }
+        return left||right||itself;
+    
+        
+    }
+    TreeNode* lowestCommonAncestor(TreeNode* root, TreeNode* p, TreeNode* q) {
+        findin(root,p,q);
+        return ans;
+    }
+};
