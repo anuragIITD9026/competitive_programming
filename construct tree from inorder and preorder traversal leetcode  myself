@@ -1,0 +1,31 @@
+class Solution {
+public:
+    TreeNode* build(vector<int>& preorder,vector<int> &inorder,int stin ,int enin,int target)
+    {
+        if(stin>enin)
+        {
+            return nullptr;
+        }
+        int i=0;
+        if(stin==enin)
+        {
+            TreeNode* root1=new TreeNode(preorder[target]);
+            return root1;
+        }
+        for(i=stin;i<=enin;i++)
+        {
+            if(inorder[i]==preorder[target])
+            {
+                break;
+            }
+        }
+        TreeNode* root=new TreeNode(preorder[target]);
+        root->left=build(preorder,inorder,stin,i-1,target+1);
+        root->right=build(preorder,inorder,i+1,enin,target+(i-stin)+1);
+        return root;
+    }
+    TreeNode* buildTree(vector<int>& preorder, vector<int>& inorder) {
+        int size=preorder.size();
+        return build(preorder,inorder,0,size-1,0);
+    }
+};
