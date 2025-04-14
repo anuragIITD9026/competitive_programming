@@ -1,0 +1,45 @@
+class Solution {
+public:
+    Node* connect(Node* root) {
+         
+        
+        if(!root)
+        {
+            return root;
+        }
+        queue<Node*> q;
+        q.push(root);
+        while(!q.empty())
+        {
+            Node* res=new Node(0);
+            Node* ult=res;
+            int levelsize=q.size();
+           
+           
+           for(int i=0;i<levelsize;i++)
+           {
+            Node* cur=q.front();
+            ult->next=cur;
+            ult=ult->next;
+            q.pop();
+            if(cur->left)
+            {
+                q.push(cur->left);
+
+            }
+            if(cur->right)
+            {
+                q.push(cur->right);
+            }
+           }
+           
+            
+        
+           
+           
+           
+        }
+
+        return root;
+    }
+};
