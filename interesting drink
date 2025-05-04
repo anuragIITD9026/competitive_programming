@@ -1,0 +1,92 @@
+#include<bits/stdc++.h>
+using namespace std;
+// int binary_search(vector<int> array,int k)
+// {
+//     int ans=-1;
+//     int l=0,r=array.size()-1;
+//     while(l<=r)
+//     {
+//         int m=l+(r-l)/2;
+//         if(array[m]==k)
+//         {
+//             ans=m;
+//             l=m+1;
+//         }
+//         else if(array[m]<k)
+//         {
+//             ans=m;
+//             l=m+1;
+//         }
+//         else
+//         {
+//             r=m-1;
+//         }
+//     }
+//     return ans;
+
+// }
+int main()
+{
+    int n;
+    cin>>n;
+    vector<int> array;
+    for(int i=0;i<n;i++)
+    {
+        int z;
+        cin>>z;
+        array.push_back(z);
+
+    }
+    sort(array.begin(),array.end());
+    vector<int> ans;
+    int x=0,j=0;
+    ans.push_back(0);
+    for(int i=1;i<100001;)
+    {
+        if(array[j]==i&&j<n)
+        {
+            
+            
+            j++;
+        }
+        else if(array[j]<i&&j<n)
+        {
+            
+            j++;
+        }
+        else{
+            ans.push_back(j);
+            i++;
+        }
+
+
+    }
+    int q;
+    cin>>q;
+    vector<int> m;
+    for(int i=0;i<q;i++)
+    {
+        int w;
+        cin>>w;
+        if(w>100000)
+        {
+            w=100000;
+        }
+        m.push_back(w);
+    }
+    
+    // vector<int> ans;
+    // int i,j;
+    // for(i=0;i<q;i++)
+    // {
+    //     j=binary_search(array,m[i]);
+    //     ans.push_back(j+1);
+    // }
+    for( int i=0;i<q;i++)
+    {
+        int j=m[i];
+        cout<<ans[j]<<endl;
+    }
+    return 0;
+
+}
