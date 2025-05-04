@@ -1,0 +1,49 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int t;
+    cin>>t;
+    int u=t;
+    vector<int> ans;
+    while(t--)
+    {
+        int x,y;
+        cin>>x;
+        cin>>y;
+        if(x>y)
+        {
+        if(((x%9)+1)%9==(y%9))
+        {
+            ans.push_back(1);
+        }
+        else
+        {
+            ans.push_back(0);
+        }
+    }
+    else
+    {
+        if(y==x+1)
+        {
+            ans.push_back(1); 
+        }
+        else
+        {
+            ans.push_back(0);
+        }
+    }
+    }
+    for(int i=0;i<u;i++)
+    {
+        if(ans[i])
+        {
+            cout<<"yes"<<endl;
+        }
+        else{
+            cout<<"no"<<endl;
+        }
+    }
+    return 0;
+
+}
