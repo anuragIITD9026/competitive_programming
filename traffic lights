@@ -1,0 +1,40 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int x,n;
+    cin>>x>>n;
+    set<int> result;
+    result.insert(0);
+    result.insert(x);
+    multiset<int> mdiff;
+    int maxm=-1;
+    vector<int> ans;
+    mdiff.insert(x);
+    int i;
+    for(i=0;i<n;i++)
+    {
+        int y;
+        cin>>y;
+        result.insert(y);
+        auto it=result.find(y);
+        int z1=*prev(it);
+        int z2=*next(it);
+        // auto it1=result.lower_bound(y);
+        // int z1=*it1;
+        // auto it2=result.upper_bound(y);
+        // int z2=*it2;
+        mdiff.erase(mdiff.find(z2-z1));
+        mdiff.insert(y-z1);
+        mdiff.insert(z2-y);
+        maxm=*mdiff.rbegin();
+        cout<<maxm<<" ";
+        ans.push_back(maxm);
+    }
+    // cout<<endl;
+    // for(int i=0;i<n;i++)
+    // {
+    //     cout<<ans[i]<<" ";
+    // }
+    return 0;
+}
