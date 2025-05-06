@@ -1,0 +1,41 @@
+#include<bits/stdc++.h>
+#define ll long long 
+using namespace std;
+
+int main()
+{
+    int t,i;
+    cin>>t;
+    vector<ll> answer;
+    for(i=0;i<t;i++)
+    {
+        int n;
+        cin>>n;
+        int j;
+        vector<int> array(n);
+        for(j=0;j<n;j++)
+        {
+            cin>>array[j];
+        }
+        vector<ll> suffix(n,0);
+        suffix[n-1]=array[n-1];
+        for(j=n-2;j>=0;j--)
+        {
+            suffix[j]=suffix[j+1]+array[j];
+        }
+        ll cypriot=suffix[0];
+        for(j=1;j<n;j++)
+        {
+            if(suffix[j]>0)
+            {
+                cypriot+=suffix[j];
+            }
+        }
+        answer.push_back(cypriot);
+    }
+    for(i=0;i<t;i++)
+    {
+        cout<<answer[i]<<endl;
+    }
+    return 0;
+}
