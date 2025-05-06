@@ -1,0 +1,47 @@
+#include<bits/stdc++.h>
+using namespace std;
+#define ll long long
+#define ld long double 
+const int N=1e6;
+#define max(a,b,c) max(max(a,b),max(b,c))
+int main()
+{
+    vector<int> prime(1000001,1);
+    ll i;
+    ll j;
+    
+    for(i=2;i<1000001;i++)
+    {
+        if(prime[i])
+        {
+            for(j=i*i;j<1000001;j+=i)
+            {
+                prime[j]=0;
+            }
+        }
+    }
+    
+
+    int n;
+    cin>>n;
+    
+    for(i=0;i<n;i++)
+    {
+        ll x;
+        cin>>x;
+        if(x==1)
+        {
+            cout<<"NO"<<endl;
+            continue;
+        }
+        ll y=sqrt(x);
+        if(y*y==x&&prime[y])
+        {
+            cout<<"YES"<<endl;
+        }
+        else{
+            cout<<"NO"<<endl;
+        }
+    }
+    return 0;
+}
