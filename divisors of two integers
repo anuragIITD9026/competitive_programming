@@ -1,0 +1,37 @@
+#include<bits/stdc++.h>
+using namespace std;
+#define ll long long
+int main()
+{
+    int n;
+    int x,y=-1;
+    cin>>n;
+    vector<int> array(n);
+    vector<int> count(1e4+1,0);
+    for(int i=0;i<n;i++)
+    {
+        cin>>array[i];
+        count[array[i]]++;
+        if(y<array[i])
+        {
+            y=array[i];
+        }
+    }
+    
+    sort(array.begin(),array.end());
+    for(int i=0;i<n;i++)
+    {
+        if(count[array[i]]==2)
+        {
+            x=array[i];
+        }
+        else{
+            if(y%array[i]!=0)
+            {
+                x=array[i];
+            }
+        }
+    }
+    cout<<x<<" "<<y;
+    return 0;
+}
