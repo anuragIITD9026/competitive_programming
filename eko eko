@@ -1,0 +1,74 @@
+#include<bits/stdc++.h>
+using namespace std;
+#define ll long long
+// int binarysearch(vector<ll>& arr, int target) {
+//     int left = 0;
+//     int right = arr.size() - 1;
+// int ans=-1;
+
+//     while (left <= right) {
+//         int mid = left + (right - left) / 2;
+
+//         if (arr[mid] == target) {
+//             return mid; // Target found at index mid
+//         } 
+//         else if (arr[mid] < target) {
+//             right = mid - 1;
+//         } 
+//         else {
+//             left = mid + 1;
+//             ans=mid;
+//         }
+//     }
+
+//     // Target not found
+//     return ans;
+// }
+int cuttree(vector<int> array,int x)
+{
+    int i=0;
+    int ans=0;
+    for(i=0;i<array.size();i++)
+    {
+        if(array[i]>x)
+        {
+            ans+=array[i]-x;
+        }
+    }
+    return ans;
+}
+int main()
+{
+    int n,m,i,j,mx=-1;
+    cin>>n>>m;
+    vector<int> array(n);
+    for(i=0;i<n;i++)
+    {
+        cin>>array[i];
+        mx=max(mx,array[i]);
+    }
+    int lo=0,hi=mx,mid,ans;
+    while(lo<=hi)
+    {
+        mid=lo+(hi-lo)/2;
+        int chill=cuttree(array,mid);
+        if(chill==m)
+        {
+            
+            ans=mid;
+            break;
+        }
+        else if(chill<m)
+        {
+            hi=mid-1;
+        }
+        else
+        {
+            
+            lo=mid+1;
+            ans=mid;
+        }
+    }
+    cout<<ans;
+    
+}
