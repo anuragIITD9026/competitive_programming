@@ -1,0 +1,51 @@
+#include<bits/stdc++.h>
+using namespace std;
+#define ld long double
+ld eps=1e-9;
+ld malfunction(ld x)
+{
+    ld y=x*x+sqrt(x);
+    return y;
+}
+
+int main()
+{
+    ld c;
+    cin>>c;
+    ld ans=0;
+    ld lo=0,hi=1e9,mid;
+    while(hi-lo>=eps)
+    {
+        mid=lo+(hi-lo)/2;
+        ld y=malfunction(mid);
+        if(y==c)
+        {
+            ans=mid;
+            break;
+            
+        }
+        else if(y<c)
+        {
+            lo=mid;
+            ld a=abs(y-c);
+            ld b=abs(malfunction(ans)-c);
+            if(a<b)
+            {
+                ans=mid;
+            }
+        }
+        else
+        {
+            hi=mid;
+            ld a=abs(y-c);
+            ld b=abs(malfunction(ans)-c);
+            if(a<b)
+            {
+                ans=mid;
+            }
+        }
+
+    }
+    cout<<fixed<<setprecision(6)<<ans;
+    return 0;
+}
