@@ -1,0 +1,62 @@
+#include<bits/stdc++.h>
+using namespace std;
+#define ll long long
+int main()
+{
+    int t,i,j,l;
+    cin>>t;
+    vector<vector<int>> answer(t);
+    for(i=0;i<t;i++)
+    {
+        int n,maxm=INT_MIN,indmax;
+        cin>>n;
+        vector<int> array(n);
+        
+        for(j=0;j<n;j++)
+        {
+            cin>>array[j];
+            if(maxm<array[j])
+            {
+                maxm=array[j];
+                indmax=j;
+            }
+        }
+        int maxgcd=maxm;
+        answer[i].push_back(maxm);
+        array.erase(array.begin()+indmax);
+        while(!array.empty())
+        {
+            if(maxgcd==1)
+            {
+                for(j=0;j<array.size();j++)
+                {
+                    answer[i].push_back(array[j]);
+                }
+                break;
+            }
+            int maxgc=gcd(maxgcd,array[0]);
+            indmax=0;
+            for(j=0;j<array.size();j++)
+            {
+                if(gcd(maxgcd,array[j])>maxgc)
+                {
+                    maxgc=gcd(maxgcd,array[j]);
+                    indmax=j;
+                }
+            }
+            answer[i].push_back(array[indmax]);
+            maxgcd=maxgc;
+            array.erase(array.begin()+indmax);
+        }
+
+    }
+    for(i=0;i<t;i++)
+    {
+        for(j=0;j<answer[i].size();j++)
+        {
+            cout<<answer[i][j]<<" ";
+        }
+        cout<<endl;
+    }
+    return 0;
+}
