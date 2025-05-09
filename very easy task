@@ -1,0 +1,23 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int n,x,y;
+    cin>>n>>x>>y;
+    int a=0,b=0;
+    int excess=min(x,y);
+    n--;
+    while(a+b<n)
+    {
+        if((a+1)*x<=(b+1)*y)
+        {
+            a++;
+        }
+        else
+        {
+            b++;
+        }
+    }
+    cout<<max(a*x,b*y)+excess;
+    return 0;
+}
