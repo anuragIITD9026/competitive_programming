@@ -1,0 +1,45 @@
+#include<bits/stdc++.h>
+using namespace std;
+#define ll long long
+#define ld long double
+int main()
+{
+    int n,k,i,maxm=INT_MIN;
+    
+    cin>>n>>k;
+    vector<int> array(n);
+    for(i=0;i<n;i++)
+    {
+        cin>>array[i];
+        maxm=max(maxm,array[i]);
+    }
+    sort(array.begin(),array.end());
+    ld lo=0,hi=maxm,mid,ans;
+    int count=0;
+    while(hi-lo>1e-8)
+    {
+        mid=lo+(hi-lo)/2;
+        int count=0;
+        for(int j=0;j<n;j++)
+        {
+            count+=int(array[j]/mid);
+        }
+        if(count>=k)
+        {
+            ans=mid;
+            lo=mid;
+            
+        }
+        else 
+        {
+            hi=mid;
+        }
+        
+    }
+    cout<<fixed<<setprecision(6)<<ans;
+    return 0;
+
+
+
+
+}
