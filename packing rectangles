@@ -1,0 +1,31 @@
+#include<bits/stdc++.h>
+using namespace std;
+#define ll long long
+int main()
+{
+    ll w,h,n;
+    cin>>w>>h>>n;
+    ll a=1,b=1;
+    while(a*b<n)
+    {
+        if(a*w==b*h)
+        {
+            if(w>h)
+            {
+                b++;
+            }
+            else{
+                a++;
+            }
+        }
+        else if((a+1)*w<(b+1)*h)
+        {
+            a++;
+        }
+        else{
+            b++;
+        }
+    }
+    cout<<max(a*w,b*h);
+    return 0;
+}
