@@ -1,0 +1,27 @@
+#include<bits/stdc++.h>
+using namespace std;
+#define ll long long
+int main()
+{
+   int n;
+   ll k;
+   cin>>n;
+   cin>>k;
+   ll i=1;
+   int j=0;
+   if(k%2==1)
+   {
+    cout<<"1";
+   }
+   else
+   {
+     i=2,j=0;
+    while(k%i==0)
+    {
+        j++;
+        i = (1ll << (j + 1));
+    }
+    cout<<1+j;
+   }
+    return 0;
+}
