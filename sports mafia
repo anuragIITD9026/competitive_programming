@@ -1,0 +1,31 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int n,k;
+    cin>>n>>k;
+    int lo=0,hi=n,mid,ans;
+    
+    while(lo<=hi)
+    {
+        mid=lo+(hi-lo)/2;
+        long long x=n-mid;
+        long long y=x*(x+1)/2;
+        y-=mid;
+        if(y==k)
+        {
+            ans=mid;
+            break;
+        }
+        else if(y<k)
+        {
+            hi=mid-1;
+        }
+        else
+        {
+            lo=mid+1;
+        }
+    }
+    cout<<mid;
+    return 0;
+}
