@@ -1,0 +1,32 @@
+#include<bits/stdc++.h>
+using namespace std;
+#define ll long long
+int main()
+{
+    int t;
+    cin>>t;
+    int i,j;
+    vector<vector<int>> answer(t);
+    for(i=0;i<t;i++)
+    {
+        int n;
+        cin>>n;
+        vector<int> array(n);
+        for(j=0;j<n;j++)
+        {
+            cin>>array[j];
+        }
+        sort(array.begin(),array.end());
+        reverse(array.begin(),array.end());
+        answer[i]=array;
+    }
+    for(i=0;i<t;i++)
+    {
+        for(j=0;j<answer[i].size();j++)
+        {
+            cout<<answer[i][j]<<" ";
+        }
+        cout<<endl;
+    }
+    return 0;
+}
