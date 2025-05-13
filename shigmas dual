@@ -1,0 +1,59 @@
+#include<bits/stdc++.h>
+using namespace std;
+#define ll long long 
+int main()
+{
+    int t,i,j;
+    cin>>t;
+    vector<pair<int,vector<int>>> answer;
+    for(i=0;i<t;i++)
+    {
+        int n,x,y;
+        cin>>n;
+        cin>>x>>y;
+        vector<int> array(n-1,0);
+        if(x>0&&y>0||!x&&!y)
+        {
+            answer.push_back(make_pair(0,array));
+        }
+        else
+        {
+            
+            int z=max(x,y),k=1;
+            if((n-1)%z==0)
+            {
+            for(j=1;j<n;j++)
+            {
+                array[j-1]=k;
+                if(j%z==0&&j<n-1)
+                {
+                    k=j+2;
+                }
+            }
+            answer.push_back(make_pair(1,array));
+        }
+        else
+        {
+            answer.push_back(make_pair(0,array));
+        }
+        }
+    }
+    for(i=0;i<t;i++)
+    {
+        if(answer[i].first==0)
+        {
+            cout<<"-1"<<endl;
+        }
+        else
+        {
+            for(j=0;j<answer[i].second.size();j++)
+            {
+                cout<<answer[i].second[j]<<" ";
+            }
+            cout<<endl;
+        }
+    }
+    return 0;
+
+
+}
