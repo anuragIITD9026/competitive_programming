@@ -1,0 +1,56 @@
+#include<bits/stdc++.h>
+using namespace std;
+#define ll long long 
+int main()
+{
+    int t,i,j;
+    cin>>t;
+    vector<int> answer(t);
+    for(i=0;i<t;i++)
+    {
+        int n;
+        cin>>n;
+        vector<int> a(n),b(n);
+        for(j=0;j<n;j++)
+        {
+            cin>>a[j];
+        }
+        for(j=0;j<n;j++)
+        {
+            cin>>b[j];
+        }
+        vector<pair<int,int>> web(n);
+        for(j=0;j<n;j++)
+        {
+            web[j]=make_pair(a[j],b[j]);
+        }
+        sort(web.begin(),web.end());
+        ll time=0;
+        for(j=n-1;j>=0;j--)
+        {
+            if((time+web[j].second)<=(web[j].first))
+            {
+                time+=web[j].second;
+            }
+            else
+            {
+                ll a=web[j].first;
+                time=max(time,a);
+            }
+            
+            
+
+        }
+        answer[i]=time;
+        
+        
+    }
+    for(i=0;i<t;i++)
+    {
+        cout<<answer[i]<<endl;
+    }
+    
+    return 0;
+
+
+}
