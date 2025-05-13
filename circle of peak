@@ -1,0 +1,98 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+bool valid(vector<int>& arr) {
+    int n=arr.size();
+    for (int i=0;i<n;i++) {
+        int prev=arr[(i-1+n) % n];
+        int next=arr[(i+1)%n];
+        if(!((arr[i]>prev&&arr[i]>next)||(arr[i]<prev&&arr[i]<next))) {
+            return false;
+        }
+    }
+    return true;
+}
+
+vector<int> makearray(vector<int>& arr) {
+    int n=arr.size();
+    vector<int> result(n);
+    int mid=n/2;
+    int i=0,j=mid,k=0;
+
+    // Interleave small and large values
+    while (j<n||i<mid) {
+        if(i<mid)
+        {
+        result[k++]=arr[i++];
+        }
+        if(j<n)
+        {
+        result[k++]=arr[j++];
+        }
+       
+    }
+
+    return result;
+}
+
+int main() {
+    int t,i=0,j=0;
+    cin>>t;
+    vector<pair<int,vector<int>>> answer(t);
+    for(i=0;i<t;i++)
+    {
+    int n;
+    cin>>n;
+    vector<int> arr(n);
+    map<int,int> m;
+    for(j=0;j<n;j++)
+    {
+        cin>>arr[j];
+        m[arr[j]]=0;
+    }
+    int maxm=0;
+    sort(arr.begin(),arr.end());
+    for(j=0;j<n;j++)
+    {
+        
+        m[arr[j]]++;
+        maxm=max(m[arr[j]],maxm);
+    }
+    vector<int> ans(n);
+    if(maxm>n/2)
+    {
+        answer[i]=make_pair(0,ans);
+    }
+    else
+    {
+        vector<int> an=makearray(arr);
+        if(valid(an))
+        {
+            answer[i]=make_pair(1,an);  
+        }
+        else
+        {
+            answer[i]=make_pair(0,ans);
+        }
+
+    }
+
+    }
+    for(i=0;i<t;i++)
+    {
+        if(answer[i].first==0)
+        {
+            cout<<"NO"<<endl;
+        }
+        else
+        {
+            cout<<"YES"<<endl;
+            for(j=0;j<answer[i].second.size();j++)
+            {
+                cout<<answer[i].second[j]<<" ";
+            }
+            cout<<endl;
+        }
+    }
+    return 0;
+}
