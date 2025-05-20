@@ -1,0 +1,26 @@
+#include<bits/stdc++.h>
+using namespace std;
+#define ll long long;
+int main()
+{
+    int t;
+    int i;
+    cin>>t;
+    vector<string> answer;
+    for(i=0;i<t;i++)
+    {
+        string a,b,c,ans="";
+        cin>>a>>b>>c;
+        int j=0;
+        ans+=a[0];
+        ans+=b[0];
+        ans+=c[0];
+        answer.push_back(ans);
+
+    }
+    for(i=0;i<t;i++)
+    {
+        cout<<answer[i]<<endl;
+    }
+    return 0;
+}
