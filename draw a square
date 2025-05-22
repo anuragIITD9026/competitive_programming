@@ -1,0 +1,33 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int t,i;
+    cin>>t;
+    vector<bool> answer(t);
+    for(i=0;i<t;i++)
+    {
+        int l,r,d,u;
+        cin>>l>>r>>d>>u;
+        if((l==r)&&(r==d)&&(d==u))
+        {
+            answer[i]=true;
+        }
+        else
+        {
+            answer[i]=false;
+        }
+    }
+    for(i=0;i<t;i++)
+    {
+        if(answer[i])
+        {
+            cout<<"YES"<<endl;
+        }
+        else
+        {
+            cout<<"NO"<<endl;
+        }
+    }
+    return 0;
+}
