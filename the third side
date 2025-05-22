@@ -1,0 +1,28 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int t;
+    cin>>t;
+    vector<int> answer(t);
+    int i=0;
+    for(i=0;i<t;i++)
+    {
+        int n,sum=0;
+        cin>>n;
+        vector<int> array(n);
+        for(int j=0;j<n;j++)
+        {
+            int x;
+            cin>>x;
+            sum+=x;
+        }
+        sum-=n-1;
+        answer[i]=sum;
+    }
+    for(i=0;i<t;i++)
+    {
+        cout<<answer[i]<<endl;
+    }
+    return 0;
+}
