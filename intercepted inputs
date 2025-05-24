@@ -1,0 +1,44 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+int main()
+{
+    int t,l;
+    cin>>t;
+    vector<int> a(t),b(t);
+    for(l=0;l<t;l++)
+    {
+       int k,j,i;
+       cin>>k;
+       vector<int> array(k);
+       for(j=0;j<k;j++)
+       {
+        cin>>array[j];
+       }
+       sort(array.begin(),array.end());
+       i=0;
+       j=array.size()-1;
+       while(i<j)
+       {
+        if(array[i]*array[j]==k-2)
+        {
+            break;
+        }
+        else if(array[i]*array[j]<k-2)
+        {
+            i++;
+        }
+        else
+        {
+            j--;
+        }
+       }
+       a[l]=array[i];
+       b[l]=array[j];
+    }
+    for(l=0;l<t;l++)
+    {
+        cout<<a[l]<<" "<<b[l]<<endl;
+    }
+    return 0;
+}
