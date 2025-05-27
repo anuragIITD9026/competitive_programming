@@ -1,0 +1,36 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+int main()
+{
+    int t,i;
+    cin>>t;
+    vector<int> answer(t);
+    for(i=0;i<t;i++)
+    {
+        string str;
+        cin>>str;
+        int x=stoi(str);
+        int y=sqrt(x);
+        if(y*y==x)
+        {
+            answer[i]=y;
+        }
+        else
+        {
+            answer[i]=-1;
+        }
+    }
+    for(i=0;i<t;i++)
+    {
+        if(answer[i]==-1)
+        {
+            cout<<answer[i]<<endl;
+        }
+        else
+        {
+            cout<<"0"<<" "<<answer[i]<<endl;
+        }
+    }
+    return 0;
+}
