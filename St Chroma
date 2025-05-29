@@ -1,0 +1,26 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int t,i;
+    cin>>t;
+    vector<int> n(t),x(t);
+    for(i=0;i<t;i++)
+    {
+        cin>>n[i]>>x[i];
+    }
+    for(i=0;i<t;i++)
+    {
+        int j,k;
+        for(j=0;j<x[i];j++)
+        {
+            cout<<j<<" ";
+        }
+        for(k=n[i]-1;k>=x[i];k--)
+        {
+            cout<<k<<" ";
+        }
+        cout<<endl;
+    }
+    return 0;
+}
