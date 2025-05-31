@@ -1,0 +1,86 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int t;
+    int i;
+    cin>>t;
+    vector<int> answer(t);
+    for(i=0;i<t;i++)
+    {
+        int n,k,j;
+        cin>>n>>k;
+        vector<int> a(n),b(n);
+        for(j=0;j<n;j++)
+        {
+            cin>>a[j];
+        }
+        for(j=0;j<n;j++)
+        {
+            cin>>b[j];
+        }
+        int flag1=0,flag2=0,flag3=0,sum=0;
+        for(j=0;j<n;j++)
+        {
+            if(b[j]!=-1)
+            {
+                flag1=1;
+                if(flag2==0)
+                {
+                    sum=a[j]+b[j];
+                    flag2=1;
+                }
+                else
+                {
+                    if(sum!=(a[j]+b[j]))
+                    {
+                        flag3=1;
+                       
+                    }
+
+                }
+            }
+
+        }
+        int min=INT_MAX,maxm=INT_MIN;
+            for(j=0;j<n;j++)
+            {
+                if(min>a[j])
+                {
+                    min=a[j];
+                }
+                maxm=max(maxm,a[j]);
+            }
+        if(flag1==0)
+        {
+            
+            answer[i]=min+k-maxm+1;
+            
+        }
+        else
+        {
+            if(flag3==1)
+            {
+                answer[i]=0;
+                
+            }
+            else
+            {
+                if(sum<maxm||sum>k+min)
+                {
+                    answer[i]=0;
+                    
+                }
+                else
+                {
+                answer[i]=1;
+                }
+            }
+        }
+    }
+    for(i=0;i<t;i++)
+    {
+        cout<<answer[i]<<endl;
+    }
+    return 0;
+}
