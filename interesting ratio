@@ -1,0 +1,46 @@
+#include<bits/stdc++.h>
+using namespace std;
+#define ll long long
+int main()
+{
+    
+    vector<int> isPrime(1e7+1,1);
+    for(int i=2;i<=1e7;i++) isPrime[i]=1;
+    isPrime[0]=isPrime[1]=0;
+    for(int i=2;i*i<=1e7;i++){
+        if(isPrime[i]){
+            for(int j=i*i;j<=1e7;j+=i){
+                // 5        j-> 10 15 20 25 30
+                isPrime[j]=0;
+            }
+        }
+    }
+    isPrime[0]=0;
+    isPrime[1]=0;
+    for(int i=1;i<1e7+1;i++)
+    {
+        isPrime[i]+=isPrime[i-1];
+    }
+    int t;
+    cin>>t;
+    int i,j;
+    vector<ll> answer(t);
+    for(i=0;i<t;i++)
+    {
+        int n;
+        ll ans=0;
+        cin>>n;
+        for(j=1;j<n;j++)
+        {
+            ans+=isPrime[n/j];
+
+        }
+        answer[i]=ans;
+        
+    }
+    for(i=0;i<t;i++)
+    {
+        cout<<answer[i]<<endl;
+    }
+    return 0;
+}
