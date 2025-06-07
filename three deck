@@ -1,0 +1,39 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+int main()
+{
+    int t,i;
+    cin>>t;
+    vector<bool> answer(t,0);
+    for(i=0;i<t;i++)
+    {
+      int a,b,c;
+      cin>>a>>b>>c;
+      int x=b-a;
+      c=c-x;
+      if(c<b)
+      {
+        answer[i]=0;
+      }
+      else
+      {
+        if((c-b)%3==0)
+        {
+            answer[i]=1;
+        }
+      }
+    }
+    for(i=0;i<t;i++)
+    {
+        if(answer[i])
+        {
+            cout<<"YES"<<endl;
+        }
+        else
+        {
+            cout<<"NO"<<endl;
+        }
+    }
+    return 0;
+}
