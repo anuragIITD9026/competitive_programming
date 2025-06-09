@@ -1,0 +1,52 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+int main()
+{
+    int t;
+    int i;
+    cin>>t;
+    vector<bool> answer(t);
+    for(i=0;i<t;i++)
+    {
+        int n,x;
+        cin>>n>>x;
+        int j,start,end,flag=1;
+        for(j=1;j<=n;j++)
+        {
+            int a;
+            cin>>a;
+            if(a==1)
+            {
+                if(flag)
+                {
+                    start=j;
+                    flag=0;
+                }
+                end=j;
+            }
+            if(x>=(end-start+1))
+            {
+                answer[i]=true;
+            }
+            else
+            {
+                answer[i]=false;
+            }
+        }
+    }
+    for(i=0;i<t;i++)
+    {
+        if(answer[i])
+        {
+            cout<<"YES"<<endl;
+        }
+        else
+        {
+            cout<<"NO"<<endl;
+        }
+    }
+    
+    
+    return 0;
+}
