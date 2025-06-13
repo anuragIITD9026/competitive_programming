@@ -1,0 +1,42 @@
+#include<bits/stdc++.h>
+using namespace std;
+#define ll long long
+int main()
+{
+    int t;
+    int i;
+    cin>>t;
+    vector<bool> answer(t,1);
+    for(i=0;i<t;i++)
+    {
+       int n,j;
+       cin>>n;
+       vector<int> array(n);
+       for(j=0;j<n;j++)
+       {
+        cin>>array[j];
+       }
+       for(j=1;j<n;j++)
+       {
+        int x=abs(array[j]-array[j-1]);
+        if(x!=5&&x!=7)
+        {
+            answer[i]=0;
+            break;
+        }
+       }
+    }
+    for(i=0;i<t;i++)
+    {
+        if(answer[i])
+        {
+            cout<<"YES"<<endl;
+        }
+        else
+        {
+            cout<<"NO"<<endl;
+        }
+
+    }
+    return 0;
+}
