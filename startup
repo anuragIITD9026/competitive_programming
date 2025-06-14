@@ -1,0 +1,37 @@
+#include<bits/stdc++.h>
+using namespace std;
+#define ll long long
+int main()
+{
+    int d=200001;
+    int t;
+    int i;
+    cin>>t;
+    vector<int> answer(t);
+    for(i=0;i<t;i++)
+    {
+       int n,j,k;
+       cin>>n>>k;
+       int sum=0;
+       vector<int> array(k+1,0);
+       for(j=0;j<k;j++)
+       {
+        int a,b;
+        cin>>a>>b;
+        array[a]+=b;
+       }
+       sort(array.begin(),array.end());
+       int s=max(0,k-n+1);
+       for(j=k;j>=s;j--)
+       {
+        sum+=array[j];
+       }
+       answer[i]=sum;
+    }
+    for(i=0;i<t;i++)
+    {
+        cout<<answer[i]<<endl;
+
+    }
+    return 0;
+}
