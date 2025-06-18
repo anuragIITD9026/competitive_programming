@@ -1,0 +1,39 @@
+#include<bits/stdc++.h>
+using namespace std;
+#define ll long long
+int main()
+{
+    
+    int t;
+    int i;
+    cin>>t;
+    vector<bool> answer(t);
+    for(i=0;i<t;i++)
+    {
+       int n;
+       cin>>n;
+       if(n%2==0)
+       {
+        answer[i]=0;
+
+       }
+       else
+       {
+        answer[i]=1;
+       }
+      
+    }
+    for(i=0;i<t;i++)
+    {
+       if(answer[i])
+       {
+        cout<<"Kosuke"<<endl;
+       }
+       else
+       {
+        cout<<"Sakurako"<<endl;
+       }
+
+    }
+    return 0;
+}
