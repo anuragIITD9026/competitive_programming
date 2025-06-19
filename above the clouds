@@ -1,0 +1,47 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int t;
+    cin>>t;
+    vector<int> answer(t,0);
+    for(int i=0;i<t;i++)
+    {
+        int n,j;
+        string str;
+        cin>>n;
+        cin>>str;
+        vector<int> array(30,0);
+        for(j=0;j<n-1;j++)
+        {
+            array[str[j]-'a']++;
+        }
+        for(j=0;j<n-1;j++)
+        {
+            if(array[str[j]-'a']>=2)
+            {
+                answer[i]=1;
+                break;
+            }
+        }
+        array[str[0]-'a']--;
+        if(array[str[n-1]-'a']>=1)
+        {
+            answer[i]=1;
+        }
+
+    }
+    int i=0;
+    for(i=0;i<t;i++)
+    {
+        if(answer[i])
+        {
+            cout<<"YES"<<endl;
+        }
+        else
+        {
+            cout<<"NO"<<endl;
+        }
+    }
+    return 0;
+}
