@@ -1,0 +1,38 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int t;
+    cin>>t;
+    vector<int> answer(t);
+    for(int i=0;i<t;i++)
+    {
+        int n,s;
+        cin>>n>>s;
+        vector<int> array(n);
+        int j=0;
+        for(j=0;j<n;j++)
+        {
+            cin>>array[j];
+        }
+        if(s<=array[0])
+        {
+            answer[i]=array[n-1]-s;
+        }
+        else if(s>=array[n-1])
+        {
+            answer[i]=s-array[0];
+        }
+        else
+        {
+            int x=array[n-1]-array[0];
+            answer[i]=min(x+s-array[0],x+array[n-1]-s);
+        }
+    }
+    int i=0;
+    for(i=0;i<t;i++)
+    {
+        cout<<answer[i]<<endl;
+    }
+    return 0;
+}
