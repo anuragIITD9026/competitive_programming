@@ -1,0 +1,28 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int t;
+    cin>>t;
+    vector<int> answer(t);
+    for(int i=0;i<t;i++)
+    {
+       int n,k;
+       cin>>n>>k;
+       if(n%2==0)
+       {
+        answer[i]=n/(k-1)+(!(n%(k-1)==0));
+       }
+       else
+       {
+        n=n-k;
+        answer[i]=n/(k-1)+(!(n%(k-1)==0))+1;
+       }
+    }
+    int i=0;
+    for(i=0;i<t;i++)
+    {
+       cout<<answer[i]<<endl;
+    }
+    return 0;
+}
