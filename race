@@ -1,0 +1,33 @@
+#include<bits/stdc++.h>
+#include<algorithm>
+using namespace std;
+int main()
+{
+    int t,i;
+    cin>>t;
+   vector<int> answer(t,1);
+   for(i=0;i<t;i++)
+   {
+    int a,x,y,c,d;
+    cin>>a>>c>>d;
+    x=min(c,d);
+    y=max(c,d);
+
+    if(a>=x&&a<=y)
+    {
+        answer[i]=0;
+    }
+   }
+   for(i=0;i<t;i++)
+   {
+    if(answer[i])
+    {
+        cout<<"YES"<<endl;
+    }
+    else
+    {
+        cout<<"NO"<<endl;
+    }
+   }
+   return 0;
+}
