@@ -1,0 +1,36 @@
+#include<bits/stdc++.h>
+#include<algorithm>
+using namespace std;
+int main()
+{
+    int t,i;
+    cin>>t;
+   vector<int> answer(t);
+   for(i=0;i<t;i++)
+   {
+    int n;
+    cin>>n;
+    vector<int> array(n);
+    int min=0;
+    for(int j=0;j<n;j++)
+    {
+        cin>>array[j];
+        if(array[min]>array[j])
+        {
+            min=j;
+        }
+    }
+    array[min]++;
+    int multiply=1;
+    for(int j=0;j<n;j++)
+    {
+        multiply*=array[j];
+    }
+    answer[i]=multiply;
+   }
+   for(i=0;i<t;i++)
+   {
+    cout<<answer[i]<<endl;
+   }
+   return 0;
+}
