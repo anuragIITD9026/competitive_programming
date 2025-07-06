@@ -1,0 +1,37 @@
+#include<bits/stdc++.h>
+using namespace std;
+#define ll long long
+int main()
+{
+   int i;
+    int t;
+    cin>>t;
+    vector<int> a(t),b(t);
+    for(i=0;i<t;i++)
+    {
+       int n;
+       cin>>n;
+       int count1=0,count0=0;
+       int j=0;
+       for(j=0;j<2*n;j++)
+       {
+        int x;
+        cin>>x;
+        if(x==1)
+        {
+            count1++;
+        }
+        else
+        {
+            count0++;
+        }
+       }
+       b[i]=min(count1,count0);
+       a[i]=count1%2;
+    }
+    for(i=0;i<t;i++)
+    {
+       cout<<a[i]<<" "<<b[i]<<endl;
+    }
+    return 0;
+}
