@@ -1,0 +1,38 @@
+#include<bits/stdc++.h>
+using namespace std;
+#define ll long long
+int main()
+{
+   int i;
+    int t;
+    cin>>t;
+    vector<string> answer(t);
+    for(i=0;i<t;i++)
+    {
+      string str,ans="";
+      cin>>str;
+      int j=0;
+      reverse(str.begin(),str.end());
+      for(j=0;j<str.size();j++)
+      {
+        if(str[j]=='p')
+        {
+            ans+='q';
+        }
+        else if(str[j]=='q')
+        {
+            ans+='p';
+        }
+        else
+        {
+            ans+='w';
+        }
+      }
+answer[i]=ans;
+    }
+    for(i=0;i<t;i++)
+    {
+      cout<<answer[i]<<endl;
+    }
+    return 0;
+}
