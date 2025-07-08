@@ -1,0 +1,30 @@
+#include<bits/stdc++.h>
+using namespace std;
+#define ll long long
+int main()
+{
+   int i;
+    int t;
+    cin>>t;
+    vector<int> answer(t);
+    for(i=0;i<t;i++)
+    {
+      int a,b,c;
+      cin>>a>>b>>c;
+      int x=max(a,b)-min(a,b);
+      int u=x/c+(!(x%c==0));
+      if(u%2==0)
+      {
+        answer[i]=u/2;
+      }
+      else
+      {
+        answer[i]=u/2+1;
+      }
+    }
+    for(i=0;i<t;i++)
+    {
+      cout<<answer[i]<<endl;
+    }
+    return 0;
+}
