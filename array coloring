@@ -1,0 +1,40 @@
+#include<bits/stdc++.h>
+using namespace std;
+#define ll long long
+int main()
+{
+   int i;
+    int t;
+    cin>>t;
+    vector<int> answer(t,0);
+    for(i=0;i<t;i++)
+    {
+      int n,j,count=0;
+      cin>>n;
+      for(j=0;j<n;j++)
+      {
+        int x;
+        cin>>x;
+        if(x%2==1)
+        {
+            count++;
+        }
+      }
+      if(count%2==0)
+      {
+        answer[i]=1;
+      }
+    }
+    for(i=0;i<t;i++)
+    {
+      if(answer[i])
+      {
+        cout<<"YES"<<endl;
+      }
+      else
+      {
+        cout<<"NO"<<endl;
+      }
+    }
+    return 0;
+}
