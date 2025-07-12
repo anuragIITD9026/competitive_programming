@@ -1,0 +1,35 @@
+#include<bits/stdc++.h>
+using namespace std;
+#define ll long long
+int main()
+{
+   int i;
+    int t;
+    cin>>t;
+    vector<int> answer(t,0);
+    for(i=0;i<t;i++)
+    {
+     int n,maxm=INT_MIN,j=0;
+     cin>>n;
+     int ans;
+     for(j=0;j<n;j++)
+     {
+        int a,b;
+        cin>>a>>b;
+        if(a<=10)
+        {
+            if(maxm<=b)
+            {
+                maxm=b;
+                ans=j;
+            }
+        }
+     }
+     answer[i]=ans;
+    }
+    for(i=0;i<t;i++)
+    {
+     cout<<answer[i]+1<<endl;
+    }
+    return 0;
+}
