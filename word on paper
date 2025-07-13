@@ -1,0 +1,33 @@
+#include<bits/stdc++.h>
+using namespace std;
+#define ll long long
+int main()
+{
+   int i;
+    int t;
+    cin>>t;
+    vector<string> answer(t);
+    for(i=0;i<t;i++)
+    {
+     string ans="";
+     int c=0,x=0,y=0,flag1=0,j=0;
+     for(j=0;j<8;j++)
+     {
+        string str;
+        cin>>str;
+        for(int k=0;k<8;k++)
+        {
+            if(str[k]!='.')
+            {
+                ans+=str[k];
+            }
+        }
+     }
+     answer[i]=ans;
+    }
+    for(i=0;i<t;i++)
+    {
+     cout<<answer[i]<<endl;
+    }
+    return 0;
+}
