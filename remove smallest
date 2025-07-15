@@ -1,0 +1,46 @@
+#include<bits/stdc++.h>
+using namespace std;
+#define ll long long
+int main()
+{
+   int i;
+    int t;
+    cin>>t;
+    vector<int> answer(t,0);
+    for(i=0;i<t;i++)
+    {
+     int n;
+     cin>>n;
+     vector<int> array,flag(101,0);
+     for(int j=0;j<n;j++)
+     {
+        int x;
+        cin>>x;
+        if(flag[x]==0)
+        {
+            array.push_back(x);
+            flag[x]=1;
+        }
+        
+     }
+     sort(array.begin(),array.end());
+        int y=array[array.size()-1]-array[0];
+        // cout<<y<<" "<<array.size()<<endl;
+        if(y<array.size())
+        {
+            answer[i]=1;
+        }
+    }
+    for(i=0;i<t;i++)
+    {
+    if(answer[i])
+    {
+        cout<<"YES"<<endl;
+    }
+    else
+    {
+        cout<<"NO"<<endl;
+    }
+    }
+    return 0;
+}
