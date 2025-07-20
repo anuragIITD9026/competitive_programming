@@ -1,0 +1,44 @@
+#include<bits/stdc++.h>
+using namespace std;
+#define ll long long
+int main()
+{
+  int t,i;
+  cin>>t;
+  vector<int> answer(t);
+  for(i=0;i<t;i++)
+  {
+    int n,j,maxm=0;
+    cin>>n;
+    vector<int> array(n);
+    for(j=0;j<n;j++)
+    {
+        cin>>array[j];
+        if(array[maxm]<array[j])
+        {
+            maxm=j;
+        }
+        else if(array[maxm]==array[j])
+        {
+            if(j%2==0)
+            {
+                maxm=j;
+            }
+        }
+    }
+    maxm++;
+    if(maxm%2==0)
+    {
+        answer[i]=n/2+array[maxm-1];
+    }
+    else
+    {
+        answer[i]=n/2+(n%2==1)+array[maxm-1];
+    }
+  }
+  for(i=0;i<t;i++)
+  {
+    cout<<answer[i]<<endl;
+  }
+  return 0;
+}
