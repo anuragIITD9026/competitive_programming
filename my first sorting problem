@@ -1,0 +1,21 @@
+#include<bits/stdc++.h>
+using namespace std;
+#define ll long long
+int main()
+{
+  int t,i;
+  cin>>t;
+  vector<int> a(t),b(t);
+  for(i=0;i<t;i++)
+  {
+    int x,y;
+    cin>>x>>y;
+    a[i]=min(x,y);
+    b[i]=max(x,y);
+  }
+  for(i=0;i<t;i++)
+  {
+    cout<<a[i]<<" "<<b[i]<<endl;
+  }
+  return 0;
+}
