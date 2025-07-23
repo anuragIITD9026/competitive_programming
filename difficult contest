@@ -1,0 +1,23 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int t,i;
+    cin>>t;
+    vector<string> answer(t);
+    for(i=0;i<t;i++)
+    {
+       string str,ans="";
+       cin>>str;
+       sort(str.begin(),str.end());
+       reverse(str.begin(),str.end());
+       answer[i]=str;
+
+    }
+    for(i=0;i<t;i++)
+    {
+        cout<<answer[i]<<endl;
+    }
+    return 0;
+
+}
