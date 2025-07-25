@@ -1,0 +1,40 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);   
+    int t,i;
+    // int x=INT_MAX;
+    // cout<<INT_MAX;
+    cin>>t;
+    vector<long long int> answer(t);
+    for(i=0;i<t;i++)
+    {
+        int n,j;
+        long long int ans=0;
+        cin>>n;
+        for(j=0;j<n;j++)
+        {
+            int a,b,c,d;
+            cin>>a>>b>>c>>d;
+            if(b>d)
+            {
+                ans+=min(a,c)+(b-d);
+            }
+            if(a>c)
+            {
+                ans+=a-c;
+            }
+        }
+        answer[i]=ans;
+        
+        
+
+    }
+    for(i=0;i<t;i++)
+    {
+        cout<<answer[i]<<"\n";
+    }
+    return 0;
+}
